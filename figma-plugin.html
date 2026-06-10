@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Expanding Orca Scan into the Design Ecosystem — Carmela Farias</title>
+<meta name="description" content="A product-led growth initiative: from idea to 1,000+ installs in the Figma Community.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="case-study.css">
+</head>
+<body class="accent-cherry">
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="index.html">carmela<span>.</span>farias</a>
+    <a class="nav-back" href="index.html#work">← Back to work</a>
+  </div>
+</nav>
+
+<header class="cs-hero">
+  <div class="cs-hero-inner">
+    <span class="cs-tag">2024 · Shipped · Product-led growth</span>
+    <h1>Expanding Orca Scan into the <em>Design Ecosystem</em></h1>
+    <p class="cs-lede">How a strategic side bet — designing and shipping a Figma plugin from scratch — opened a new acquisition channel for a B2B SaaS platform.</p>
+    <div class="cs-facts">
+      <div><b>Role</b>Design + Code, end to end</div>
+      <div><b>Stack</b>Figma Plugin API · JS · HTML · CSS</div>
+      <div><b>Outcome</b>1,000+ installs</div>
+    </div>
+  </div>
+</header>
+
+<div class="wardrobe" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<article>
+  <div class="cs-body">
+
+    <h2>The opportunity</h2>
+    <p>Orca Scan helps enterprise teams across manufacturing, healthcare, and logistics manage barcode data at scale. Our users are primarily operations teams — but we started noticing a different kind of user showing up: designers and creative professionals building packaging, signage, and event materials in Figma who needed barcodes as part of their workflow.</p>
+    <p>They weren't our core user. But they were touching our ecosystem.</p>
+    <p>In a conversation with our founder, we identified a gap: Figma had no quality barcode generator plugin. The existing options were outdated, technically unreliable, or had terrible UX. We saw an untapped entry point — a tool that could solve a real problem for a new audience while expanding Orca Scan's reach into the design community.</p>
+    <p><strong>I took ownership of it.</strong></p>
+
+    <h2>My role</h2>
+    <p>This was a full-stack product initiative, not a design handoff. I owned it end to end:</p>
+    <ul>
+      <li>Competitive research across existing Figma plugins (20+ analyzed)</li>
+      <li>Problem definition and feature scoping</li>
+      <li>UX and UI design, using Orca Scan's design system and tokens</li>
+      <li>Frontend implementation — vanilla JS, HTML, CSS, Figma Plugin API</li>
+      <li>Integration with Orca Scan's barcode generation logic (QR, EAN, Code 128)</li>
+      <li>Internal testing, iteration, and Community launch</li>
+    </ul>
+
+    <h2>The strategic framing</h2>
+    <p>Before touching Figma, I had to answer: <em>is this worth building?</em> I mapped three angles:</p>
+    <p><strong>User need</strong> — Designers regularly need barcodes for print, packaging, and events. The workaround (exporting from external tools, re-importing) was slow and error-prone. A native plugin would remove that friction entirely.</p>
+    <p><strong>Business case</strong> — Every Figma user who installs the plugin is a potential Orca Scan lead. It's low-cost brand presence in a community we weren't reaching at all.</p>
+    <p><strong>Feasibility</strong> — The Figma Plugin API is well-documented. With our existing barcode logic already built, the integration was tractable. The main unknown was my own JS fluency — which I treated as a constraint to work around, not a blocker.</p>
+
+    <h2>Design process</h2>
+    <p>I designed the plugin UI directly in Figma before writing a single line of code — keeping it minimal, on-brand, and immediately familiar to our existing product language. I pulled tokens from our design system to maintain consistency even in this micro-tool.</p>
+    <p>The UX challenge was specific: Figma plugin panels are small, modal, and users have zero tolerance for complexity. Every element had to earn its place. I cut three features from the initial scope because they added friction without adding value.</p>
+
+    <div class="img-placeholder">[ Plugin screenshots — UI panel, barcode generation in canvas ]</div>
+
+    <h2>Building it</h2>
+    <p>I had never shipped a Figma plugin before. I approached it the same way I approach any design problem: research the constraints, break it into parts, start small.</p>
+    <p>The plugin architecture required four files working together: <code style="font-family:var(--mono);font-size:.9em;background:#fff;padding:2px 6px;border-radius:5px">manifest.json</code>, <code style="font-family:var(--mono);font-size:.9em;background:#fff;padding:2px 6px;border-radius:5px">ui.html</code>, <code style="font-family:var(--mono);font-size:.9em;background:#fff;padding:2px 6px;border-radius:5px">code.js</code>, and <code style="font-family:var(--mono);font-size:.9em;background:#fff;padding:2px 6px;border-radius:5px">style.css</code>. I learned the Plugin API by doing, not by waiting until I felt ready.</p>
+    <p class="pullquote">The hardest part wasn't the code — it was knowing what not to build.</p>
+    <p>Scoping a focused v1 that was shippable and useful, rather than a bloated one that never launched.</p>
+
+    <h2>Results</h2>
+    <div class="results">
+      <div class="result"><span class="num">1,000+</span><span class="desc">installs in the Figma Community since launch</span></div>
+      <div class="result"><span class="num">New</span><span class="desc">acquisition segment: creative professionals outside our core market</span></div>
+      <div class="result"><span class="num">$0</span><span class="desc">marketing budget — distribution created by design</span></div>
+    </div>
+    <p>Featured on Orca Scan's official channels and promoted via LinkedIn, driving measurable brand awareness in the design community. It demonstrated that design-led product bets can create distribution without a dedicated marketing budget.</p>
+
+    <h2>What this taught me about <em>product design</em></h2>
+    <p>This project changed how I think about scope, ownership, and impact.</p>
+    <p>Designing the UI was the easy part. The harder — and more valuable — skill was making the product case: why this, why now, what does success look like. And then building it myself, because waiting for engineering resources would have meant it never happened.</p>
+    <p>The gap between "I had the idea" and "it's live with 1,000 users" is execution. <strong>That's what I learned to close.</strong></p>
+
+    <p class="tools-line">Figma · Figma Plugin API · JavaScript · HTML · CSS · VS Code · GitHub · Orca Scan Design System</p>
+
+  </div>
+</article>
+
+<div class="cs-next">
+  <div class="cs-next-inner">
+    <span class="label">NEXT CASE STUDY</span>
+    <a href="bitcoin-app.html">Bitcoin App — Redesign for Central America →</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Carmela Farias</span>
+    <span>designed &amp; coded by me — obviously</span>
+  </div>
+</footer>
+
+</body>
+</html>
