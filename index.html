@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Carmela Farias — Product Designer × Front-end</title>
+<meta name="description" content="Product Designer who ships her own front-end. UX strategy, UI craft, HTML/CSS/JS.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=JetBrains+Mono:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FBF6EF;
+    --ink:#221E29;
+    --ink-soft:#5C5566;
+    --cherry:#E2453C;
+    --cobalt:#3347E0;
+    --mustard:#EFA528;
+    --pistachio:#7FA868;
+    --lilac:#C9A6E8;
+    --editor:#16121C;
+    --editor-line:#2B2436;
+    --code-tag:#FF7A70;
+    --code-attr:#F5C063;
+    --code-string:#A8D98A;
+    --code-comment:#7A7185;
+    --display:'Fraunces',serif;
+    --body:'Schibsted Grotesk',sans-serif;
+    --mono:'JetBrains Mono',monospace;
+    --maxw:1080px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto}
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit}
+  ::selection{background:var(--mustard);color:var(--ink)}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:color-mix(in srgb, var(--paper) 88%, transparent);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid color-mix(in srgb, var(--ink) 10%, transparent);
+  }
+  .nav-inner{
+    max-width:var(--maxw);margin:0 auto;
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .nav-name{
+    font-family:var(--mono);font-size:13px;font-weight:600;
+    text-decoration:none;letter-spacing:.02em;
+  }
+  .nav-name span{color:var(--cherry)}
+  .nav-links{display:flex;gap:28px;list-style:none}
+  .nav-links a{
+    font-size:14px;font-weight:500;text-decoration:none;
+    color:var(--ink-soft);
+    transition:color .15s;
+  }
+  .nav-links a:hover{color:var(--ink)}
+  .nav-links a:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px;border-radius:2px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    overflow:hidden;
+    transition:background .45s ease;
+  }
+  .hero-inner{
+    max-width:var(--maxw);margin:0 auto;
+    padding:96px 24px 110px;
+    position:relative;
+  }
+  /* toggle */
+  .mode-toggle{
+    display:inline-flex;align-items:center;gap:0;
+    border:1.5px solid var(--ink);
+    border-radius:100px;
+    overflow:hidden;
+    margin-bottom:56px;
+    background:var(--paper);
+  }
+  .mode-toggle button{
+    font-family:var(--mono);font-size:12.5px;font-weight:600;
+    letter-spacing:.04em;
+    padding:8px 18px;
+    border:none;background:transparent;color:var(--ink-soft);
+    cursor:pointer;
+    transition:background .2s,color .2s;
+  }
+  .mode-toggle button.active{background:var(--ink);color:var(--paper)}
+  .mode-toggle button:focus-visible{outline:2px solid var(--cobalt);outline-offset:-2px}
+
+  /* design layer */
+  .hero-eyebrow{
+    font-family:var(--mono);font-size:13px;color:var(--cherry);
+    font-weight:600;letter-spacing:.06em;
+    margin-bottom:20px;
+  }
+  h1.hero-title{
+    font-family:var(--display);
+    font-weight:560;
+    font-size:clamp(44px,7.4vw,86px);
+    line-height:1.04;
+    letter-spacing:-0.015em;
+    max-width:13ch;
+  }
+  h1.hero-title em{
+    font-style:italic;
+    font-weight:480;
+    color:var(--cobalt);
+  }
+  h1.hero-title .accent-build{color:var(--cherry)}
+  .hero-sub{
+    margin-top:30px;
+    font-size:19px;
+    color:var(--ink-soft);
+    max-width:54ch;
+  }
+  .hero-sub strong{color:var(--ink);font-weight:600}
+  .hero-meta{
+    margin-top:40px;
+    display:flex;flex-wrap:wrap;gap:12px;align-items:center;
+  }
+  .chip{
+    font-family:var(--mono);font-size:12.5px;font-weight:500;
+    padding:7px 14px;border-radius:100px;
+    border:1.5px solid var(--ink);
+  }
+  .chip.cherry{border-color:var(--cherry);color:var(--cherry)}
+  .chip.cobalt{border-color:var(--cobalt);color:var(--cobalt)}
+  .chip.mustard{border-color:var(--mustard);color:#B07410}
+  .hero-cta{
+    margin-top:44px;display:flex;gap:16px;flex-wrap:wrap;
+  }
+  .btn{
+    font-family:var(--body);font-weight:600;font-size:15.5px;
+    text-decoration:none;
+    padding:13px 26px;border-radius:100px;
+    transition:transform .15s ease, box-shadow .15s ease;
+    display:inline-block;
+  }
+  .btn:focus-visible{outline:2.5px solid var(--cobalt);outline-offset:3px}
+  .btn-primary{background:var(--ink);color:var(--paper)}
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 6px 18px color-mix(in srgb, var(--ink) 25%, transparent)}
+  .btn-ghost{border:1.5px solid var(--ink);color:var(--ink)}
+  .btn-ghost:hover{background:var(--ink);color:var(--paper)}
+
+  /* code layer */
+  .hero.code-mode{background:var(--editor)}
+  .hero .layer-design,.hero .layer-code{transition:opacity .35s ease}
+  .hero .layer-code{
+    display:none;
+    font-family:var(--mono);
+    color:#D8D2E0;
+  }
+  .hero.code-mode .layer-design{display:none}
+  .hero.code-mode .layer-code{display:block}
+  .hero.code-mode .mode-toggle{border-color:#D8D2E0;background:var(--editor)}
+  .hero.code-mode .mode-toggle button{color:#8E849C}
+  .hero.code-mode .mode-toggle button.active{background:#D8D2E0;color:var(--editor)}
+
+  .code-block{
+    font-size:clamp(13px,1.9vw,17px);
+    line-height:1.9;
+  }
+  .code-block .ln{
+    display:block;
+    padding-left:3.2em;
+    position:relative;
+    white-space:pre-wrap;
+  }
+  .code-block .ln::before{
+    content:attr(data-n);
+    position:absolute;left:0;width:2.2em;
+    text-align:right;
+    color:#4A4156;
+    font-size:.82em;
+    top:.25em;
+  }
+  .code-block .ind1{margin-left:2ch}
+  .code-block .ind2{margin-left:4ch}
+  .tag{color:var(--code-tag)}
+  .attr{color:var(--code-attr)}
+  .str{color:var(--code-string)}
+  .com{color:var(--code-comment);font-style:italic}
+  .annot{
+    display:inline-block;
+    font-size:11px;
+    background:var(--cherry);
+    color:#fff;
+    border-radius:4px;
+    padding:1px 7px;
+    margin-left:10px;
+    vertical-align:middle;
+    letter-spacing:.02em;
+  }
+  .annot.blue{background:var(--cobalt)}
+  .annot.yellow{background:var(--mustard);color:var(--ink)}
+  .code-footnote{
+    margin-top:42px;
+    font-size:13px;color:#8E849C;
+  }
+  .code-footnote a{color:var(--code-string)}
+
+  /* wardrobe divider */
+  .wardrobe{
+    display:grid;grid-template-columns:repeat(4,1fr);
+    height:7px;
+  }
+  .wardrobe i{display:block}
+  .wardrobe i:nth-child(1){background:var(--cherry)}
+  .wardrobe i:nth-child(2){background:var(--cobalt)}
+  .wardrobe i:nth-child(3){background:var(--mustard)}
+  .wardrobe i:nth-child(4){background:var(--pistachio)}
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:90px 24px}
+  .section-inner{max-width:var(--maxw);margin:0 auto}
+  .section-label{
+    font-family:var(--mono);font-size:13px;font-weight:600;
+    letter-spacing:.08em;
+    color:var(--ink-soft);
+    margin-bottom:8px;
+  }
+  h2{
+    font-family:var(--display);
+    font-weight:540;
+    font-size:clamp(30px,4vw,44px);
+    letter-spacing:-.01em;
+    margin-bottom:48px;
+  }
+  h2 em{font-style:italic;font-weight:460}
+
+  /* work cards */
+  .work-grid{display:grid;gap:26px}
+  .work-card{
+    border:1.5px solid var(--ink);
+    border-radius:20px;
+    padding:36px 34px;
+    text-decoration:none;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px 24px;
+    align-items:start;
+    transition:transform .18s ease, box-shadow .18s ease;
+    position:relative;
+    background:var(--paper);
+  }
+  .work-card:hover{transform:translateY(-3px)}
+  .work-card:focus-visible{outline:3px solid var(--cobalt);outline-offset:3px}
+  .work-card[data-c="cherry"]:hover{box-shadow:8px 8px 0 var(--cherry)}
+  .work-card[data-c="cobalt"]:hover{box-shadow:8px 8px 0 var(--cobalt)}
+  .work-card[data-c="mustard"]:hover{box-shadow:8px 8px 0 var(--mustard)}
+  .work-tag{
+    grid-column:2;grid-row:1;
+    font-family:var(--mono);font-size:12px;font-weight:600;
+    padding:5px 12px;border-radius:100px;
+    align-self:start;white-space:nowrap;
+  }
+  .work-card[data-c="cherry"] .work-tag{background:var(--cherry);color:#fff}
+  .work-card[data-c="cobalt"] .work-tag{background:var(--cobalt);color:#fff}
+  .work-card[data-c="mustard"] .work-tag{background:var(--mustard);color:var(--ink)}
+  .work-title{
+    grid-column:1;grid-row:1;
+    font-family:var(--display);
+    font-size:clamp(22px,2.6vw,28px);
+    font-weight:560;line-height:1.2;
+  }
+  .work-desc{
+    grid-column:1 / -1;
+    color:var(--ink-soft);
+    max-width:64ch;
+  }
+  .work-link{
+    grid-column:1 / -1;
+    font-weight:600;font-size:15px;
+    margin-top:6px;
+  }
+  .work-card[data-c="cherry"] .work-link{color:var(--cherry)}
+  .work-card[data-c="cobalt"] .work-link{color:var(--cobalt)}
+  .work-card[data-c="mustard"] .work-link{color:#B07410}
+
+  /* experience */
+  .xp-section{background:#F3ECE2}
+  .xp-list{display:grid;gap:0}
+  .xp-item{
+    display:grid;
+    grid-template-columns:120px 1fr;
+    gap:24px;
+    padding:30px 0;
+    border-bottom:1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+  }
+  .xp-item:last-child{border-bottom:none}
+  .xp-year{
+    font-family:var(--mono);font-size:13.5px;font-weight:600;
+    color:var(--ink-soft);
+    padding-top:4px;
+  }
+  .xp-role{font-weight:700;font-size:18px}
+  .xp-role a{text-decoration-color:var(--cherry);text-underline-offset:3px}
+  .xp-role .at{color:var(--ink-soft);font-weight:500}
+  .xp-detail{color:var(--ink-soft);margin-top:6px;max-width:66ch}
+
+  /* tools */
+  .tools-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:26px;
+  }
+  .tool-group{
+    border:1.5px solid var(--ink);
+    border-radius:20px;
+    padding:28px 26px;
+  }
+  .tool-group h3{
+    font-family:var(--mono);font-size:13px;font-weight:700;
+    letter-spacing:.06em;
+    margin-bottom:14px;
+  }
+  .tool-group:nth-child(1) h3{color:var(--cherry)}
+  .tool-group:nth-child(2) h3{color:var(--cobalt)}
+  .tool-group:nth-child(3) h3{color:#B07410}
+  .tool-group:nth-child(4) h3{color:var(--pistachio)}
+  .tool-group p{color:var(--ink-soft);font-size:15.5px}
+
+  /* contact */
+  .contact{
+    background:var(--ink);
+    color:var(--paper);
+  }
+  .contact h2{color:var(--paper);margin-bottom:18px}
+  .contact h2 em{color:var(--mustard)}
+  .contact p{color:#B9B2C4;max-width:50ch;margin-bottom:36px}
+  .contact-links{display:flex;gap:16px;flex-wrap:wrap}
+  .contact .btn-primary{background:var(--paper);color:var(--ink)}
+  .contact .btn-ghost{border-color:var(--paper);color:var(--paper)}
+  .contact .btn-ghost:hover{background:var(--paper);color:var(--ink)}
+  footer{
+    background:var(--ink);
+    color:#8E849C;
+    font-family:var(--mono);font-size:12.5px;
+    padding:0 24px 36px;
+  }
+  .footer-inner{
+    max-width:var(--maxw);margin:0 auto;
+    border-top:1px solid #3A3344;
+    padding-top:24px;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;
+  }
+
+  @media(max-width:640px){
+    .hero-inner{padding:64px 24px 80px}
+    section{padding:64px 24px}
+    .xp-item{grid-template-columns:1fr;gap:6px}
+    .work-card{grid-template-columns:1fr}
+    .work-tag{grid-column:1;grid-row:auto;justify-self:start;margin-bottom:4px}
+    .work-title{grid-row:auto}
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-name" href="#top">carmela<span>.</span>farias</a>
+    <ul class="nav-links">
+      <li><a href="#work">Work</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+
+    <div class="mode-toggle" role="group" aria-label="View mode">
+      <button type="button" class="active" data-mode="design" aria-pressed="true">design</button>
+      <button type="button" data-mode="code" aria-pressed="false">&lt;code&gt;</button>
+    </div>
+
+    <!-- DESIGN LAYER -->
+    <div class="layer-design">
+      <p class="hero-eyebrow">// Product Designer × Front-end</p>
+      <h1 class="hero-title">I <em>design</em> the experience.<br>Then I <span class="accent-build">build</span> it.</h1>
+      <p class="hero-sub">
+        I'm Carmela — a Product Designer with an Industrial Design background and a front-end habit.
+        I take products from <strong>research to shipped UI</strong>, writing my own HTML, CSS and JS along the way.
+        Flip the switch above if you don't believe me.
+      </p>
+      <div class="hero-meta">
+        <span class="chip cherry">B2B SaaS</span>
+        <span class="chip cobalt">Design Systems</span>
+        <span class="chip mustard">HTML · CSS · JS</span>
+        <span class="chip">Remote — Argentina ↔ Europe</span>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#work">See my work</a>
+        <a class="btn btn-ghost" href="#contact">Let's talk</a>
+      </div>
+    </div>
+
+    <!-- CODE LAYER -->
+    <div class="layer-code" aria-label="The same hero, as I wrote it">
+      <div class="code-block">
+        <span class="ln" data-n="1"><span class="com">&lt;!-- same hero, same author --&gt;</span></span>
+        <span class="ln" data-n="2"><span class="tag">&lt;header</span> <span class="attr">class</span>=<span class="str">"hero"</span><span class="tag">&gt;</span><span class="annot">padding: 96px 0</span></span>
+        <span class="ln ind1" data-n="3"><span class="tag">&lt;h1&gt;</span>I design the experience.<span class="tag">&lt;br&gt;</span></span>
+        <span class="ln ind2" data-n="4">Then I build it.<span class="tag">&lt;/h1&gt;</span><span class="annot blue">Fraunces · clamp(44px → 86px)</span></span>
+        <span class="ln ind1" data-n="5"><span class="tag">&lt;p</span> <span class="attr">class</span>=<span class="str">"sub"</span><span class="tag">&gt;</span>Research → flows → UI →</span>
+        <span class="ln ind2" data-n="6">my own front-end.<span class="tag">&lt;/p&gt;</span><span class="annot yellow">max-width: 54ch</span></span>
+        <span class="ln ind1" data-n="7"><span class="tag">&lt;a</span> <span class="attr">href</span>=<span class="str">"#work"</span> <span class="attr">class</span>=<span class="str">"btn"</span><span class="tag">&gt;</span>See my work<span class="tag">&lt;/a&gt;</span></span>
+        <span class="ln" data-n="8"><span class="tag">&lt;/header&gt;</span></span>
+        <span class="ln" data-n="9"></span>
+        <span class="ln" data-n="10"><span class="com">// no template. no builder. just me, an editor,</span></span>
+        <span class="ln" data-n="11"><span class="com">// and an unreasonable love for border-radius.</span></span>
+      </div>
+      <p class="code-footnote">This page is hand-coded — view source, it's all there. → <a href="#work">jump to work</a></p>
+    </div>
+
+  </div>
+</header>
+
+<div class="wardrobe" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+
+<!-- ============ WORK ============ -->
+<section id="work">
+  <div class="section-inner">
+    <p class="section-label">SELECTED WORK</p>
+    <h2>Case studies with <em>receipts</em></h2>
+    <div class="work-grid">
+
+      <a class="work-card" data-c="cherry" href="/figma-plugin">
+        <h3 class="work-title">Expanding Orca Scan into the Design Ecosystem</h3>
+        <span class="work-tag">2024 · Shipped</span>
+        <p class="work-desc">A product-led growth bet: I designed and shipped a Figma plugin from scratch — UX, UI and the JavaScript — opening a new acquisition channel for a B2B SaaS platform. 1,000+ installs in the Figma Community.</p>
+        <span class="work-link">Read case study →</span>
+      </a>
+
+      <a class="work-card" data-c="cobalt" href="/bitcoin-app">
+        <h3 class="work-title">Bitcoin App — Redesign for Central America</h3>
+        <span class="work-tag">2023 · Fintech</span>
+        <p class="work-desc">I joined this project to test the product. I left having redesigned it — onboarding, send/receive flows, KYC and dashboard for a crypto remittance app where trust is the product.</p>
+        <span class="work-link">Read case study →</span>
+      </a>
+
+      <a class="work-card" data-c="mustard" href="/puro-app">
+        <h3 class="work-title">Puro App — From UX Student to Product Designer</h3>
+        <span class="work-tag">2020 → 2025</span>
+        <p class="work-desc">A wellness app concept from my first UX course, revisited five years later with a product mindset — critiquing my own decisions and reframing the problem with business impact in mind.</p>
+        <span class="work-link">Read case study →</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPERIENCE ============ -->
+<section id="experience" class="xp-section">
+  <div class="section-inner">
+    <p class="section-label">EXPERIENCE</p>
+    <h2>Where I've <em>shipped</em></h2>
+    <div class="xp-list">
+
+      <div class="xp-item">
+        <div class="xp-year">2023 — now</div>
+        <div>
+          <p class="xp-role">UX/UI Designer <span class="at">— <a href="https://orcascan.com" target="_blank" rel="noopener">Orca Scan</a> · Remote, full-time</span></p>
+          <p class="xp-detail">Sole designer on a global B2B SaaS for barcode asset tracking. End-to-end UX/UI: flows, MVP scoping, visual design, design system, dev handoff — and front-end implementation in HTML/CSS/JS. Built a JS-powered Figma plugin and improved sign-up conversion through research with Hotjar and Grafana.</p>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-year">2022 — 2023</div>
+        <div>
+          <p class="xp-role">UX Designer <span class="at">— <a href="https://www.singular-innovation.com/" target="_blank" rel="noopener">Singular Agency</a> · Remote, full-time</span></p>
+          <p class="xp-detail">Designed for crypto, HR tech and legal SaaS products. Led discovery workshops, shaped product direction, and delivered mobile-first UIs in high-ambiguity contexts.</p>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-year">2022 — 2023</div>
+        <div>
+          <p class="xp-role">QA &amp; UX Testing Lead <span class="at">— Singular Agency · Remote, full-time</span></p>
+          <p class="xp-detail">Led QA across digital platforms: testing protocols, pre-launch UX flags, and better designer–developer collaboration. Mentored junior testers.</p>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-year">2022</div>
+        <div>
+          <p class="xp-role">Design Thinking Instructor <span class="at">— <a href="https://www.digitalhouse.com/" target="_blank" rel="noopener">Digital House</a> · Remote, part-time</span></p>
+          <p class="xp-detail">Taught Design Thinking to 130+ aspiring developers and product professionals — discovery, prototyping, and testing on real-world challenges.</p>
+        </div>
+      </div>
+
+      <div class="xp-item">
+        <div class="xp-year">2019 — 2023</div>
+        <div>
+          <p class="xp-role">Freelance UX/UI Designer <span class="at">· Remote, part-time</span></p>
+          <p class="xp-detail">Research-driven design for startups and small businesses. Owned end-to-end web and mobile experiences with Figma, Adobe tools, and user interviews.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOOLS ============ -->
+<section id="tools">
+  <div class="section-inner">
+    <p class="section-label">TOOLBOX</p>
+    <h2>What I <em>work</em> with</h2>
+    <div class="tools-grid">
+      <div class="tool-group">
+        <h3>UX &amp; PRODUCT</h3>
+        <p>Figma (libraries, tokens, variables), Adobe CC, Notion, Miro, Maze, Optimal Workshop</p>
+      </div>
+      <div class="tool-group">
+        <h3>CODE &amp; PROTOTYPING</h3>
+        <p>HTML, CSS, JavaScript, Figma Dev Mode, CodeSandbox, VS Code, Git basics</p>
+      </div>
+      <div class="tool-group">
+        <h3>TESTING &amp; ANALYTICS</h3>
+        <p>Hotjar, Maze, Grafana, Mixpanel, Canny, LambdaTest</p>
+      </div>
+      <div class="tool-group">
+        <h3>AI IN MY FLOW</h3>
+        <p>Claude, Figma AI, v0 — for faster iteration, copy exploration and prototyping</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+  <div class="section-inner">
+    <p class="section-label" style="color:#8E849C">CONTACT</p>
+    <h2>Let's make something <em>good</em></h2>
+    <p>Open to senior product design roles and design-engineering adventures. Remote across Europe and Argentina.</p>
+    <div class="contact-links">
+      <a class="btn btn-primary" href="mailto:carmelafarias@gmail.com">carmelafarias@gmail.com</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/carmela-farias/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://www.instagram.com/carmelafarias" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Carmela Farias</span>
+    <span>designed &amp; coded by me — obviously</span>
+  </div>
+</footer>
+
+<script>
+  const hero = document.querySelector('.hero');
+  const buttons = document.querySelectorAll('.mode-toggle button');
+  buttons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      buttons.forEach(b => { b.classList.remove('active'); b.setAttribute('aria-pressed','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-pressed','true');
+      hero.classList.toggle('code-mode', btn.dataset.mode === 'code');
+    });
+  });
+</script>
+
+</body>
+</html>
