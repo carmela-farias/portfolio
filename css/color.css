@@ -76,4 +76,66 @@
   .stamp-row { color: var(--line); border-top: 1px solid var(--line); }
 
   :focus-visible { outline-color: var(--accent); }
+
+  /* ---- shell ---- */
+
+  .topbar { border-bottom: 1px solid var(--line); }
+  .back   { color: var(--muted); }
+  .back:hover { color: var(--ink); }
+
+  .band-surface { background: var(--surface); }
+
+  /* ---- case study ---- */
+
+  .eyebrow    { color: var(--accent); }
+  .case-title { color: var(--ink); }
+  .dek        { color: var(--muted); }
+
+  .meta    { border-top: 1px solid var(--line); }
+  .meta dt { color: var(--muted); }
+  .meta dd { color: var(--ink); }
+
+  .prose h2     { color: var(--ink); }
+  .prose p,
+  .prose li     { color: var(--muted); }
+  .prose strong { color: var(--ink); }
+  .prose code   { background: var(--surface); color: var(--ink); }
+
+  .pull {
+    color: var(--ink);
+    border-left: 2px solid var(--accent);
+  }
+
+  .result   { border: 1px solid var(--line); border-radius: var(--radius); }
+  .result-n { color: var(--accent); }
+  .result-t { color: var(--muted); }
+
+  .case-foot { border-top: 1px solid var(--line); }
+
+  /* ---- work index ---- */
+
+  .sec-h { color: var(--muted); }
+
+  .card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--ground);
+  }
+  a.card:hover { border-color: var(--accent); }
+  .card-title { color: var(--ink); }
+  .card-dek   { color: var(--muted); }
+  .card-year  { color: var(--muted); }
+  .card-soon  { color: var(--accent); }
+  .card-go    { color: var(--accent); }
+
+  /* ---- contact ---- */
+
+  .contact-mail  { color: var(--ink); }
+  .contact-mail:hover { color: var(--accent); }
+  .contact-links a {
+    color: var(--muted);
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+  }
+  .contact-links a:hover { color: var(--ink); border-color: var(--accent); }
 }

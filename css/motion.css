@@ -30,6 +30,18 @@
 
   h1 .ship { transition: color var(--slow) var(--ease); }
 
+  a.card {
+    transition: border-color var(--fast) var(--ease),
+                transform var(--fast) var(--ease);
+  }
+  a.card:hover { transform: translateY(-3px); }
+
+  .back,
+  .contact-mail,
+  .contact-links a {
+    transition: color var(--fast), border-color var(--fast);
+  }
+
   @media (prefers-reduced-motion: reduce) {
     * { transition: none !important; animation: none !important; }
   }
