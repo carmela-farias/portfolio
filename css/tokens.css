@@ -27,6 +27,8 @@
     /* --- geometry --------------------------------------------- */
     --radius:  10px;
     --unit:    8px;
+    --measure: 66ch;      /* reading width for long-form */
+    --page:    1100px;    /* content column */
 
     /* --- type scale ------------------------------------------- */
     --scale:   1.26;      /* ratio between steps */
