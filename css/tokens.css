@@ -1,0 +1,76 @@
+/* ---------------------------------------------------------------
+   layer: tokens
+   Barranca — the design system behind this site.
+   Named for the red clay bluffs over the Paraná river.
+
+   Every value the site renders comes from here. Nothing below this
+   layer declares a raw colour, radius or spacing number.
+   --------------------------------------------------------------- */
+@layer tokens {
+
+  :root {
+    /* --- palette: earth on warm black ------------------------- */
+    --ochre:   #E0A033;   /* primary signal */
+    --clay:    #C4603F;   /* secondary, warmer */
+    --lunar:   #9B9AB8;   /* cool counterweight */
+
+    /* --- ground & ink ---------------------------------------- */
+    --ground:  #13110F;
+    --surface: #1C1915;
+    --ink:     #EFE8DC;
+    --muted:   #978C7E;
+    --line:    #332C24;
+
+    /* --- role tokens ------------------------------------------ */
+    --accent:  var(--ochre);
+
+    /* --- geometry --------------------------------------------- */
+    --radius:  10px;
+    --unit:    8px;
+
+    /* --- type scale ------------------------------------------- */
+    --scale:   1.26;      /* ratio between steps */
+    --step-1:  1.26;      /* scale^1 — body up   */
+    --step-5:  3.18;      /* scale^5 — display   */
+
+    /* --- families --------------------------------------------- */
+    --display: "Syne", "Instrument Sans", system-ui, sans-serif;
+    --body:    "Instrument Sans", system-ui, -apple-system, sans-serif;
+    --mono:    "DM Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+    /* --- motion ----------------------------------------------- */
+    --ease:    cubic-bezier(.2, .7, .2, 1);
+    --fast:    .18s;
+    --slow:    .32s;
+
+    color-scheme: dark;
+  }
+
+  /* --- light, by system preference --------------------------- */
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --ochre:   #A8701A;
+      --clay:    #9E452A;
+      --lunar:   #6A6986;
+      --ground:  #E9E6DE;
+      --surface: #F3F1EA;
+      --ink:     #1E1A16;
+      --muted:   #6B6156;
+      --line:    #D5CEC2;
+      color-scheme: light;
+    }
+  }
+
+  /* --- light, explicit --------------------------------------- */
+  :root[data-theme="light"] {
+    --ochre:   #A8701A;
+    --clay:    #9E452A;
+    --lunar:   #6A6986;
+    --ground:  #E9E6DE;
+    --surface: #F3F1EA;
+    --ink:     #1E1A16;
+    --muted:   #6B6156;
+    --line:    #D5CEC2;
+    color-scheme: light;
+  }
+}
