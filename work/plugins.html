@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Expanding Orca Scan into the design ecosystem — Carmela Farias</title>
-<meta name="description" content="A product-led growth initiative: designing and shipping a Figma plugin from scratch, to 950+ users in the Figma Community.">
+<title>Putting Orca Scan where designers already work — Carmela Farias</title>
+<meta name="description" content="Two plugins, two ecosystems, no marketing budget: how a barcode generator for Figma and Canva opened a distribution channel for a B2B SaaS platform.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -35,23 +35,24 @@
     <div class="wrap">
       <div class="case-head">
         <p class="eyebrow">2024 · Product-led growth</p>
-        <h1 class="case-title">Expanding Orca Scan into the design ecosystem</h1>
-        <p class="dek measure">A side bet that paid: designing and shipping a Figma plugin from
-          scratch opened an acquisition channel into an audience the product had never reached.</p>
+        <h1 class="case-title">Putting Orca Scan where designers already work</h1>
+        <p class="dek measure">Two plugins, two ecosystems, no marketing budget. A barcode generator
+          for Figma and Canva gave a B2B platform a way into an audience it had never reached — and
+          became a distribution pattern the rest of the team picked up.</p>
       </div>
 
       <dl class="meta">
         <div>
           <dt>Role</dt>
-          <dd>Design and code, end to end</dd>
+          <dd>Design and code, end to end, on both</dd>
         </div>
         <div>
           <dt>Stack</dt>
-          <dd>Figma Plugin API · JavaScript · HTML · CSS</dd>
+          <dd>Figma Plugin API · Canva Apps SDK · JavaScript · HTML · CSS</dd>
         </div>
         <div>
-          <dt>Outcome</dt>
-          <dd>950+ users in the Figma Community</dd>
+          <dt>Reach</dt>
+          <dd>950+ users on Figma · 544 monthly actives on Canva</dd>
         </div>
       </dl>
     </div>
@@ -65,26 +66,26 @@
           <h2>The opportunity</h2>
           <p>Orca Scan helps enterprise teams across manufacturing, healthcare and logistics manage
             barcode data at scale. Our users are operations teams. But a different kind of user kept
-            turning up: designers building packaging, signage and event material in Figma, who needed
-            barcodes as part of their workflow.</p>
+            turning up: designers building packaging, signage and event material, who needed barcodes
+            as part of their workflow.</p>
           <p>They weren't our core user. They were touching our ecosystem anyway.</p>
           <p>Talking it through with our founder, we found the gap. Figma had no good barcode
-            generator. The plugins that existed were outdated, unreliable, or painful to use. That was
-            an opening — a tool that solved a real problem for a new audience and put Orca Scan in
-            front of the design community at the same time.</p>
+            generator — the plugins that existed were outdated, unreliable, or painful to use. That
+            was an opening on two fronts at once: a tool that solved a real problem for a new
+            audience, and a way to put Orca Scan in front of people who had never heard of us.</p>
           <p><strong>I took ownership of it.</strong></p>
         </section>
 
         <section>
           <h2>What I owned</h2>
-          <p>This was a full product initiative, not a design handoff:</p>
+          <p>Both plugins were full product initiatives, not design handoffs:</p>
           <ul>
             <li>Competitive research across the existing plugins — 20+ analysed</li>
-            <li>Problem definition and scope</li>
+            <li>Problem definition and scope for each platform</li>
             <li>UX and UI, built on Orca Scan's design system</li>
-            <li>Front-end implementation — vanilla JS, HTML, CSS, Figma Plugin API</li>
+            <li>Front-end implementation — vanilla JS, HTML, CSS, against each platform's SDK</li>
             <li>Integration with our barcode generation logic (QR, EAN, Code 128)</li>
-            <li>Testing, iteration and the Community launch</li>
+            <li>Testing, iteration, and both marketplace launches</li>
           </ul>
         </section>
 
@@ -94,8 +95,9 @@
           <p><strong>User need.</strong> Designers need barcodes for print, packaging and events
             regularly. The workaround — generate somewhere else, export, re-import — was slow and
             error-prone. A native plugin removed that friction entirely.</p>
-          <p><strong>Business case.</strong> Every designer who installs the plugin is a potential
-            Orca Scan lead. Low-cost presence in a community we weren't reaching at all.</p>
+          <p><strong>Business case.</strong> Every designer who installs the plugin meets Orca Scan
+            inside a tool they already trust. Presence in a community we weren't reaching at all,
+            for the cost of building it.</p>
           <p><strong>Feasibility.</strong> The Plugin API is well documented and our barcode logic
             already existed, so the integration was tractable. The real unknown was my own JavaScript
             — which I treated as a constraint to work around, not a reason to stop.</p>
@@ -105,16 +107,16 @@
           <h2>Designing for a panel</h2>
           <p>I designed the UI in Figma before writing a line of code, pulling tokens from our design
             system so the plugin felt like the product even at this scale.</p>
-          <p>The constraint was specific. Figma panels are small, modal, and users have no patience
-            for complexity inside them. Every element had to earn its place. I cut three features from
-            the initial scope because they added friction without adding value.</p>
+          <p>The constraint was specific. Plugin panels are small, modal, and users have no patience
+            for complexity inside them. Every element had to earn its place. I cut three features
+            from the initial scope because they added friction without adding value.</p>
         </section>
 
         <section>
           <h2>Building it</h2>
-          <p>I had never shipped a Figma plugin. I approached it the way I approach a design problem:
+          <p>I had never shipped a plugin. I approached it the way I approach a design problem:
             research the constraints, break it into parts, start small.</p>
-          <p>The architecture needed four files working together — <code>manifest.json</code>,
+          <p>The Figma architecture needed four files working together — <code>manifest.json</code>,
             <code>ui.html</code>, <code>code.js</code> and <code>style.css</code>. I learned the
             Plugin API by building against it rather than waiting until I felt ready.</p>
         </section>
@@ -127,23 +129,41 @@
         </section>
 
         <section>
+          <h2>Then again, on Canva</h2>
+          <p>Figma reaches product designers. Canva reaches everyone else who makes things — small
+            business owners printing their own labels, marketers, teachers, event organisers. Same
+            underlying need, a completely different user.</p>
+          <p>So I rebuilt it for Canva's SDK, which meant rethinking the interface rather than porting
+            it. Canva's users don't know what Code 128 is and shouldn't have to. The Figma version
+            could assume a designer's vocabulary; this one had to lead with the outcome and keep the
+            technical choices out of the way until someone wanted them.</p>
+          <p>It turned out to be the one with the deeper usage.</p>
+        </section>
+
+        <section>
           <h2>Results</h2>
           <div class="results">
             <div class="result">
               <span class="result-n">950+</span>
-              <span class="result-t">users in the Figma Community since launch</span>
+              <span class="result-t">users on the Figma plugin</span>
             </div>
             <div class="result">
-              <span class="result-n">New</span>
-              <span class="result-t">audience reached — designers, outside our core market</span>
+              <span class="result-n">617</span>
+              <span class="result-t">installs a month on Canva</span>
+            </div>
+            <div class="result">
+              <span class="result-n">544</span>
+              <span class="result-t">people using the Canva app every month</span>
             </div>
             <div class="result">
               <span class="result-n">$0</span>
               <span class="result-t">marketing spend — the distribution was the design</span>
             </div>
           </div>
-          <p>It shipped on Orca Scan's channels and on LinkedIn, and it proved that a design-led
-            product bet can create its own distribution without a budget behind it.</p>
+          <p>What started as one plugin became a way of thinking about reach: meet people inside the
+            tools they already use, solve something small for them properly, and let the product
+            introduce itself. Other engineers on the team went on to build the same kind of
+            integration for other platforms.</p>
         </section>
 
         <section>
@@ -151,8 +171,8 @@
           <p>Designing the UI was the easy half. The harder and more valuable skill was making the
             product case — why this, why now, what success looks like — and then building the thing
             myself, because waiting for engineering capacity would have meant it never existed.</p>
-          <p>The distance between having the idea and having 950 users is execution. <strong>That's
-            what I learned to close.</strong></p>
+          <p>The distance between having the idea and having people use it every day is execution.
+            <strong>That's what I learned to close.</strong></p>
         </section>
 
       </div>
