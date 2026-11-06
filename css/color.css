@@ -1,0 +1,79 @@
+/* ---------------------------------------------------------------
+   layer: color
+   Surfaces, ink, borders and the accent. Reads tokens only.
+   --------------------------------------------------------------- */
+@layer color {
+
+  body { background: var(--ground); color: var(--ink); }
+
+  .stage {
+    background: var(--ground);
+    border-right: 1px solid var(--line);
+  }
+  @media (max-width: 900px) {
+    .stage { border-right: 0; border-bottom: 1px solid var(--line); }
+  }
+
+  .tokens { background: var(--surface); }
+
+  .sig    { color: var(--muted); }
+  .sig b  { color: var(--ink); }
+
+  h1 .ship { color: var(--accent); }
+
+  .lede         { color: var(--muted); }
+  .lede strong  { color: var(--ink); }
+
+  .layer          { color: var(--muted); opacity: .45; }
+  .layer.on       { color: var(--ink); opacity: 1; }
+  .layer.on .moon { color: var(--accent); }
+
+  .btn        { border: 1px solid transparent; border-radius: var(--radius); }
+  .btn-solid  { background: var(--accent); color: var(--ground); }
+  .btn-ghost  { border-color: var(--line); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--ink); }
+
+  .marks      { border-top: 1px solid var(--line); }
+  .mark svg   { color: var(--accent); }
+  .mark p     { color: var(--muted); }
+  .mark p b   { color: var(--ink); }
+
+  .tk-title   { color: var(--muted); }
+
+  .replay {
+    border: 1px solid var(--line);
+    color: var(--muted);
+    border-radius: 999px;
+  }
+  .replay:hover { color: var(--ink); border-color: var(--ink); }
+
+  pre.code      { color: var(--muted); }
+  pre.code .k   { color: var(--ink); }
+  pre.code .v   { color: var(--accent); }
+  pre.code .c   { color: var(--muted); opacity: .65; }
+
+  .ctl-l        { color: var(--muted); }
+  .ctl-l output { color: var(--ink); }
+
+  .sw {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+  }
+  .sw[aria-pressed="true"] { border-color: var(--ink); }
+  .sw-ochre { background: var(--ochre); }
+  .sw-clay  { background: var(--clay); }
+  .sw-lunar { background: var(--lunar); }
+
+  .seg button {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--muted);
+  }
+  .seg button[aria-pressed="true"] { color: var(--ink); border-color: var(--ink); }
+
+  input[type="range"] { accent-color: var(--accent); }
+
+  .stamp-row { color: var(--line); border-top: 1px solid var(--line); }
+
+  :focus-visible { outline-color: var(--accent); }
+}

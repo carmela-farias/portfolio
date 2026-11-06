@@ -1,0 +1,36 @@
+/* ---------------------------------------------------------------
+   layer: motion
+   The last layer. Everything above renders correctly without it.
+   --------------------------------------------------------------- */
+@layer motion {
+
+  .stage, .tokens { transition: background var(--slow) var(--ease); }
+
+  .btn {
+    transition: transform var(--fast) var(--ease),
+                background var(--slow) var(--ease),
+                border-color var(--slow) var(--ease),
+                color var(--slow) var(--ease);
+  }
+  .btn:hover { transform: translateY(-2px); }
+
+  .layer { transition: opacity var(--fast), color var(--fast); }
+
+  .sw {
+    transition: transform var(--fast) var(--ease),
+                border-radius var(--slow) var(--ease);
+  }
+  .sw:hover { transform: translateY(-2px); }
+
+  .seg button,
+  .replay { transition: color var(--fast), border-color var(--fast); }
+
+  .seg button { transition: color var(--fast), border-color var(--fast),
+                            border-radius var(--slow) var(--ease); }
+
+  h1 .ship { transition: color var(--slow) var(--ease); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+}

@@ -1,0 +1,105 @@
+/* ---------------------------------------------------------------
+   layer: layout
+   Structure and spacing. Every gap is a multiple of --unit.
+   --------------------------------------------------------------- */
+@layer layout {
+
+  html, body { min-height: 100%; }
+
+  .split {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    min-height: 100vh;
+  }
+  @media (max-width: 900px) {
+    .split { grid-template-columns: 1fr; min-height: 0; }
+  }
+
+  /* ---- left: the rendered page ---- */
+  .stage {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(26px, 4vw, 44px);
+    padding-inline: max(16px, env(safe-area-inset-left, 0px))
+                    max(16px, env(safe-area-inset-right, 0px));
+    padding-block: clamp(28px, 5vh, 56px) clamp(32px, 6vh, 64px);
+  }
+
+  .layers {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--unit) * .5) calc(var(--unit) * 1.75);
+    align-items: center;
+  }
+  .layer { display: inline-flex; align-items: center; gap: 6px; }
+
+  .ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(var(--unit) * 1.5);
+  }
+  .btn {
+    display: inline-block;
+    padding: calc(var(--unit) * 1.6) calc(var(--unit) * 2.8);
+  }
+
+  .marks {
+    display: grid;
+    gap: calc(var(--unit) * 1.5);
+    margin-top: auto;
+    padding-top: clamp(20px, 3vw, 32px);
+  }
+  .mark {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: calc(var(--unit) * 1.5);
+    align-items: start;
+  }
+  .mark svg { width: 18px; height: 18px; margin-top: 3px; }
+
+  /* ---- right: the token source ---- */
+  .tokens {
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--unit) * 2.75);
+    min-width: 0;
+    padding-inline: max(16px, env(safe-area-inset-left, 0px))
+                    max(16px, env(safe-area-inset-right, 0px));
+    padding-block: clamp(28px, 5vh, 56px);
+  }
+
+  .tk-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: calc(var(--unit) * 1.5);
+    flex-wrap: wrap;
+  }
+
+  pre.code { overflow-x: auto; }
+
+  .ctl { display: grid; gap: calc(var(--unit) * 1.125); }
+  .ctl-l {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: calc(var(--unit) * 1.25);
+  }
+
+  .swatches { display: flex; gap: calc(var(--unit) * 1.25); }
+  .sw { width: 34px; height: 34px; padding: 0; }
+
+  .seg { display: flex; gap: calc(var(--unit) * .75); }
+  .seg button { padding: calc(var(--unit) * .75) calc(var(--unit) * 1.5); }
+
+  input[type="range"] { width: 100%; }
+
+  .stamp-row {
+    display: flex;
+    gap: calc(var(--unit) * 1.25);
+    align-items: center;
+    margin-top: auto;
+    padding-top: calc(var(--unit) * 2.25);
+  }
+  .stamp-row svg { width: 14px; height: 14px; }
+}
