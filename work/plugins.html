@@ -133,10 +133,15 @@
           <p>Figma reaches product designers. Canva reaches everyone else who makes things — small
             business owners printing their own labels, marketers, teachers, event organisers. Same
             underlying need, a completely different user.</p>
-          <p>So I rebuilt it for Canva's SDK, which meant rethinking the interface rather than porting
-            it. Canva's users don't know what Code 128 is and shouldn't have to. The Figma version
-            could assume a designer's vocabulary; this one had to lead with the outcome and keep the
-            technical choices out of the way until someone wanted them.</p>
+          <p>I rebuilt it for Canva's SDK. Two decisions carried most of the weight.</p>
+          <p><strong>It outputs SVG.</strong> These codes end up on packaging, labels and signage,
+            printed at sizes nobody can predict. A raster barcode looks fine on screen and fails at
+            the scanner. Vector was the only answer that holds up where the thing actually gets
+            used.</p>
+          <p><strong>The product introduces itself at the right moment.</strong> Under the value
+            field sits one line — <em>want to track this barcode?</em> — and that's Orca Scan,
+            offered as the answer to a question the user is already close to asking. The growth
+            mechanism is a piece of UX, not an ad slot bolted onto the panel.</p>
           <p>It turned out to be the one with the deeper usage.</p>
         </section>
 
