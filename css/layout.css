@@ -236,6 +236,14 @@
     gap: calc(var(--unit) * 2);
     align-items: start;
   }
+  /* both panels read at the same height, so the pair compares like for like */
+  .pair .shot img {
+    width: auto;
+    max-width: 100%;
+    height: clamp(300px, 40vw, 560px);
+    object-fit: contain;
+    margin-inline: auto;
+  }
 
   .contact-inner { display: grid; gap: calc(var(--unit) * 3); }
   .contact-links {

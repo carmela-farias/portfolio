@@ -94,6 +94,12 @@
   .meta    { border-top: 1px solid var(--line); }
   .meta dt { color: var(--muted); }
   .meta dd { color: var(--ink); }
+  .meta dd a {
+    color: var(--accent);
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent);
+    padding-bottom: 1px;
+  }
+  .meta dd a:hover { border-bottom-color: var(--accent); }
 
   .prose h2     { color: var(--ink); }
   .prose p,
