@@ -34,11 +34,12 @@
   <header class="band">
     <div class="wrap">
       <div class="case-head">
-        <p class="eyebrow">2024 · Product-led growth</p>
+        <p class="eyebrow">2025 · Ecosystem strategy</p>
         <h1 class="case-title">Putting Orca Scan where designers already work</h1>
-        <p class="dek measure">Two plugins, two ecosystems, no marketing budget. A barcode generator
-          for Figma and Canva gave a B2B platform a way into an audience it had never reached — and
-          became a distribution pattern the rest of the team picked up.</p>
+        <p class="dek measure">Orca Scan's data kept leaving the product for other tools. The answer
+          was to follow it — a marketplace of connectors and add-ons that put Orca Scan inside the
+          places the data was already going. I proposed the two on the design side, Figma and Canva,
+          and designed and built them both.</p>
       </div>
 
       <dl class="meta">
@@ -48,11 +49,18 @@
         </div>
         <div>
           <dt>Stack</dt>
-          <dd>Figma Plugin API · Canva Apps SDK · JavaScript · HTML · CSS</dd>
+          <dd>Figma Plugin API · Canva Apps SDK · JavaScript · React · TypeScript</dd>
+        </div>
+        <div>
+          <dt>Live</dt>
+          <dd><a href="https://www.figma.com/community/plugin/1521873019299435632"
+                 target="_blank" rel="noopener">Figma Community</a>
+            · <a href="https://www.canva.com/apps/AAG12MtD9ko/barcodes-by-orca"
+                 target="_blank" rel="noopener">Canva Apps</a></dd>
         </div>
         <div>
           <dt>Reach</dt>
-          <dd>950+ users on Figma · 544 monthly actives on Canva</dd>
+          <dd>8K users on Canva · 971 on Figma</dd>
         </div>
       </dl>
     </div>
@@ -65,15 +73,21 @@
         <section>
           <h2>The opportunity</h2>
           <p>Orca Scan helps enterprise teams across manufacturing, healthcare and logistics manage
-            barcode data at scale. Our users are operations teams. But a different kind of user kept
-            turning up: designers building packaging, signage and event material, who needed barcodes
-            as part of their workflow.</p>
-          <p>They weren't our core user. They were touching our ecosystem anyway.</p>
-          <p>Talking it through with our founder, we found the gap. Figma had no good barcode
-            generator — the plugins that existed were outdated, unreliable, or painful to use. That
-            was an opening on two fronts at once: a tool that solved a real problem for a new
-            audience, and a way to put Orca Scan in front of people who had never heard of us.</p>
-          <p><strong>I took ownership of it.</strong></p>
+            barcode data at scale. Our users are operations teams, and the product was doing its job.
+            But the data kept walking out the door — exported, pasted, re-imported somewhere else to
+            finish the work.</p>
+          <p>Every one of those exports was a moment where Orca Scan stopped being useful and another
+            tool took over.</p>
+          <p>So the company set a direction around it: instead of treating the exports as leakage,
+            build for them. A marketplace of connectors and add-ons that puts Orca Scan inside the
+            tools the data is already heading to — Slack, Figma, Canva, and an MCP server for the
+            assistants people now work through. Each team proposed the platforms it knew.</p>
+          <p><strong>I'm the designer. I proposed Figma and Canva.</strong></p>
+          <p>It answered something of mine, too. I was moving into front-end work and needed real
+            code to learn on — code I could ship without risking the product. A plugin is its own
+            codebase with its own release cycle. Figma became the first thing I built end to end.</p>
+          <p>It also happened to be an open gap. The barcode plugins already on Figma were outdated,
+            unreliable, or painful to use.</p>
         </section>
 
         <section>
@@ -82,9 +96,9 @@
           <ul>
             <li>Competitive research across the existing plugins — 20+ analysed</li>
             <li>Problem definition and scope for each platform</li>
-            <li>UX and UI, built on Orca Scan's design system</li>
+            <li>UX and UI — Orca Scan's own design system on Figma, Canva's component library on Canva</li>
             <li>Front-end implementation — vanilla JS, HTML, CSS, against each platform's SDK</li>
-            <li>Integration with our barcode generation logic (QR, EAN, Code 128)</li>
+            <li>Integration with Orca Scan's barcode service — 10 symbologies, from QR and DataMatrix through to Code 128, EAN and UPC</li>
             <li>Testing, iteration, and both marketplace launches</li>
           </ul>
         </section>
@@ -104,93 +118,117 @@
         </section>
 
         <section>
-          <h2>Designing for a panel</h2>
-          <p>I designed the UI in Figma before writing a line of code, pulling tokens from our design
-            system so the plugin felt like the product even at this scale.</p>
-          <p>The constraint was specific. Plugin panels are small, modal, and users have no patience
-            for complexity inside them. Every element had to earn its place. I cut three features
-            from the initial scope because they added friction without adding value.</p>
+          <h2>Figma: the first thing I built alone</h2>
+          <p>No spec, no ticket, no handoff waiting at the other end. I opened Figma and designed the
+            panel first — what it shows, what it asks for, what happens when you press the button.</p>
+          <p><strong>Then I made the decision that shaped everything after it: the plugin would look
+            exactly like Orca Scan.</strong> Not Figma-native, not neutral. The same dark panel, the
+            same yellow, the same form controls — built from the product's own components rather than
+            redrawn to resemble them. Someone who generates a barcode here and later opens Orca Scan
+            should recognise an interface they have already used.</p>
+          <p>That decision is also what turned the project into an education. To reuse the components
+            I had to understand how they are built: how a form renders, how a button renders, what
+            <code>pure-select</code> expects back, which variables the stylesheet reads. The plugin
+            ships its own <code>variables.css</code> because the product has one — a panel this small
+            still earns a token layer. That's the habit, not the scale.</p>
+          <p>And around all of it, the part nobody sits you down to teach: repositories, branches,
+            what a commit is for, what a pull request is actually asking. I learned the ecosystem by
+            having somewhere safe to be wrong — a separate codebase with its own release, where a
+            mistake couldn't reach the product.</p>
+          <p>The panel itself stayed ruthless. Plugin panels are small, modal, and nobody has patience
+            for complexity inside one. I cut three features from the initial scope because they added
+            friction without adding value.</p>
+          <p>Writing the code was the smaller half. That's why it took months.</p>
+
+          <figure class="wide">
+            <div class="shot">
+              <img src="../assets/plugins/figma-insert.png"
+                   alt="The Figma plugin panel beside the vector barcode it just inserted on the canvas.">
+            </div>
+            <figcaption>Orca Scan's interface, running inside Figma — and the vector node it drops
+              onto the canvas.</figcaption>
+          </figure>
+        </section>
+
+        <blockquote class="pull">I didn't need a tutorial. I needed a codebase where being wrong
+          couldn't reach the product.</blockquote>
+
+        <section>
+          <h2>Canva: the opposite problem</h2>
+          <p>Figma reaches product designers. Canva reaches everyone else who makes things — small
+            business owners printing their own labels, marketers, teachers, event organisers. Same
+            underlying need, a completely different user.</p>
+          <p>And a completely different build. Canva's platform is built for this: a starter kit, an
+            SDK in React and TypeScript, and a component library that <em>is</em> Canva's interface.
+            There is nothing to design. All the work moves to one question — how should this feature
+            behave — and from there into the API.</p>
+          <p>So the second plugin took weeks where the first had taken months. Partly because I had
+            already cleared the path. Partly because Canva had done, for me, the half I'd had to do
+            myself on Figma.</p>
+          <p>I had never written React. I shipped it anyway — starter kit, SDK docs, AI answering
+            questions as they came up, two blockers taken to a colleague. Most of it I worked out
+            alone. Canva's API is where I stopped learning how to call an API and started
+            understanding what one is doing.</p>
+          <p>The part I didn't expect to find interesting was watching another product think. An SDK
+            is a set of opinions about who builds on you and how much of your interface they're
+            allowed to touch. Canva's answers are not Orca Scan's. You don't notice your own
+            assumptions until you spend a month inside someone else's.</p>
 
           <figure class="wide">
             <div class="pair">
               <div class="shot">
                 <p class="fig-label">Figma</p>
                 <img src="../assets/plugins/figma-panel.png"
-                     alt="The Orca Scan barcode generator panel inside Figma.">
+                     alt="The Orca Scan barcode generator panel inside Figma, using Orca Scan's own interface.">
               </div>
               <div class="shot">
                 <p class="fig-label">Canva</p>
                 <img src="../assets/plugins/canva-panel.png"
-                     alt="The Barcodes by Orca panel inside Canva, showing a generated QR code.">
+                     alt="The Barcodes by Orca panel inside Canva, built from Canva's own component library.">
               </div>
             </div>
-            <figcaption>Same tool, two audiences. Figma can assume a designer's vocabulary;
-              Canva has to lead with the outcome.</figcaption>
+            <figcaption>Two answers to the same question — who should a plugin look like? On Figma I
+              brought Orca Scan's design system in. On Canva the platform's own library is the
+              answer, and the design work goes somewhere else entirely.</figcaption>
           </figure>
         </section>
 
         <section>
-          <h2>Building it</h2>
-          <p>I had never shipped a plugin. I approached it the way I approach a design problem:
-            research the constraints, break it into parts, start small.</p>
-          <p>The Figma architecture needed four files working together — <code>manifest.json</code>,
-            <code>ui.html</code>, <code>code.js</code> and <code>style.css</code>. I learned the
-            Plugin API by building against it rather than waiting until I felt ready.</p>
-        </section>
+          <h2>What both of them do the same</h2>
+          <p><strong>They output SVG, and that was settled on day one.</strong> These codes end up on
+            packaging, labels and signage, printed at sizes nobody can predict. A raster barcode looks
+            right on screen and fails at the scanner. Vector is the only output that holds up where
+            the thing actually gets used.</p>
+          <p><strong>And the product introduces itself at the right moment.</strong> Under the value
+            field, in both plugins, sits one line — <em>track this barcode with Orca Scan</em> —
+            placed where someone has just made a code and is one thought away from wondering what
+            happens to it next. The growth mechanism is a piece of UX, not an ad slot bolted onto the
+            panel.</p>
 
-        <blockquote class="pull">The hardest part wasn't the code. It was knowing what not to build.</blockquote>
-
-        <section>
-          <p>Scoping a v1 that was small enough to ship and useful enough to matter, instead of a
-            bloated one that never launched.</p>
-        </section>
-
-        <section>
-          <h2>Then again, on Canva</h2>
-          <p>Figma reaches product designers. Canva reaches everyone else who makes things — small
-            business owners printing their own labels, marketers, teachers, event organisers. Same
-            underlying need, a completely different user.</p>
-          <p>I rebuilt it for Canva's SDK. Two decisions carried most of the weight.</p>
-          <p><strong>It outputs SVG.</strong> These codes end up on packaging, labels and signage,
-            printed at sizes nobody can predict. A raster barcode looks fine on screen and fails at
-            the scanner. Vector was the only answer that holds up where the thing actually gets
-            used.</p>
-          <p><strong>The product introduces itself at the right moment.</strong> Under the value
-            field sits one line — <em>want to track this barcode?</em> — and that's Orca Scan,
-            offered as the answer to a question the user is already close to asking. The growth
-            mechanism is a piece of UX, not an ad slot bolted onto the panel.</p>
           <figure>
             <div class="shot">
               <img src="../assets/plugins/canva-prompt.png"
                    alt="Detail of the Canva panel: a line under the value field reading
-                        'want to track this barcode? Try Orca Scan'.">
+                        'Do you want to track this barcode? Try Orca Scan'.">
             </div>
-            <figcaption>The whole growth mechanism, in one line of UI.</figcaption>
+            <figcaption>The whole growth mechanism, in one line of UI — and it ships in both.</figcaption>
           </figure>
 
-          <p>It turned out to be the one with the deeper usage.</p>
-        </section>
-
-        <section>
-          <figure class="wide">
-            <div class="shot">
-              <img src="../assets/plugins/output-in-context.png"
-                   alt="A barcode generated by the plugin, placed in a real label design.">
-            </div>
-            <figcaption>Vector output, because these end up printed at sizes nobody can predict.</figcaption>
-          </figure>
+          <p>Canva turned out to be the one with the reach: past 8,000 users, against roughly 971 on
+            Figma. The audience that designs packaging and labels every day is simply the larger
+            one.</p>
         </section>
 
         <section>
           <h2>Results</h2>
           <div class="results">
             <div class="result">
-              <span class="result-n">950+</span>
-              <span class="result-t">users on the Figma plugin</span>
+              <span class="result-n">8K</span>
+              <span class="result-t">users on Canva</span>
             </div>
             <div class="result">
-              <span class="result-n">617</span>
-              <span class="result-t">installs a month on Canva</span>
+              <span class="result-n">971</span>
+              <span class="result-t">users on Figma</span>
             </div>
             <div class="result">
               <span class="result-n">544</span>
@@ -209,9 +247,10 @@
 
         <section>
           <h2>What it changed in how I work</h2>
-          <p>Designing the UI was the easy half. The harder and more valuable skill was making the
-            product case — why this, why now, what success looks like — and then building the thing
-            myself, because waiting for engineering capacity would have meant it never existed.</p>
+          <p>Designing the panel was the part I already knew how to do. The two that changed me
+            were making the product case — why this, why now, what success looks like — and then
+            building it, which is where the design actually gets decided. Every question the code
+            asked me was a design question I hadn't finished answering.</p>
           <p>The distance between having the idea and having people use it every day is execution.
             <strong>That's what I learned to close.</strong></p>
         </section>
