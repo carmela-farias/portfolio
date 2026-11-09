@@ -151,4 +151,17 @@
     word-break: break-word;
   }
   .contact-links { font-size: 15px; }
+
+  figcaption {
+    font-family: var(--mono);
+    font-size: 11.5px;
+    line-height: 1.45;
+    letter-spacing: .01em;
+  }
+  .fig-label {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
 }

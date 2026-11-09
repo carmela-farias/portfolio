@@ -212,6 +212,31 @@
 
   /* ---- contact ---- */
 
+  /* ---- figures ---- */
+
+  figure {
+    display: grid;
+    gap: calc(var(--unit) * 1.5);
+    margin: 0;
+    max-width: var(--measure);
+  }
+  figure.wide { max-width: none; }
+
+  .shot {
+    display: grid;
+    gap: calc(var(--unit) * 1.25);
+    padding: calc(var(--unit) * 2);
+    border-radius: var(--radius);
+  }
+  .shot img { width: 100%; height: auto; border-radius: calc(var(--radius) - 4px); }
+
+  .pair {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: calc(var(--unit) * 2);
+    align-items: start;
+  }
+
   .contact-inner { display: grid; gap: calc(var(--unit) * 3); }
   .contact-links {
     display: flex;
