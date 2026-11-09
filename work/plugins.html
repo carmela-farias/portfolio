@@ -52,6 +52,10 @@
           <dd>Figma Plugin API · Canva Apps SDK · JavaScript · React · TypeScript</dd>
         </div>
         <div>
+          <dt>Timeline</dt>
+          <dd>Figma Jul–Oct 2025 · Canva Oct–Dec 2025</dd>
+        </div>
+        <div>
           <dt>Live</dt>
           <dd><a href="https://www.figma.com/community/plugin/1521873019299435632"
                  target="_blank" rel="noopener">Figma Community</a>
@@ -82,12 +86,14 @@
             build for them. A marketplace of connectors and add-ons that puts Orca Scan inside the
             tools the data is already heading to — Slack, Figma, Canva, and an MCP server for the
             assistants people now work through. Each team proposed the platforms it knew.</p>
+          <p>Designers need barcodes constantly — packaging, labels, signage, events — and the
+            workaround was to generate one somewhere else, export it, and carry it back in. The
+            barcode plugins already on Figma were outdated, unreliable, or painful to use. Nobody
+            had made this easy.</p>
           <p><strong>I'm the designer. I proposed Figma and Canva.</strong></p>
           <p>It answered something of mine, too. I was moving into front-end work and needed real
             code to learn on — code I could ship without risking the product. A plugin is its own
             codebase with its own release cycle. Figma became the first thing I built end to end.</p>
-          <p>It also happened to be an open gap. The barcode plugins already on Figma were outdated,
-            unreliable, or painful to use.</p>
         </section>
 
         <section>
@@ -101,20 +107,6 @@
             <li>Integration with Orca Scan's barcode service — 10 symbologies, from QR and DataMatrix through to Code 128, EAN and UPC</li>
             <li>Testing, iteration, and both marketplace launches</li>
           </ul>
-        </section>
-
-        <section>
-          <h2>Making the case before making the thing</h2>
-          <p>Before opening Figma I had to answer whether this was worth building at all. Three angles:</p>
-          <p><strong>User need.</strong> Designers need barcodes for print, packaging and events
-            regularly. The workaround — generate somewhere else, export, re-import — was slow and
-            error-prone. A native plugin removed that friction entirely.</p>
-          <p><strong>Business case.</strong> Every designer who installs the plugin meets Orca Scan
-            inside a tool they already trust. Presence in a community we weren't reaching at all,
-            for the cost of building it.</p>
-          <p><strong>Feasibility.</strong> The Plugin API is well documented and our barcode logic
-            already existed, so the integration was tractable. The real unknown was my own JavaScript
-            — which I treated as a constraint to work around, not a reason to stop.</p>
         </section>
 
         <section>
@@ -169,6 +161,10 @@
             questions as they came up, two blockers taken to a colleague. Most of it I worked out
             alone. Canva's API is where I stopped learning how to call an API and started
             understanding what one is doing.</p>
+          <p>Not all of it was handed over. Canva ships apps in every language it supports, but
+            only from a strings file you write yourself — so every label, hint and error message had
+            to come out of the interface and be authored as content before translation could touch
+            it.</p>
           <p>The part I didn't expect to find interesting was watching another product think. An SDK
             is a set of opinions about who builds on you and how much of your interface they're
             allowed to touch. Canva's answers are not Orca Scan's. You don't notice your own
@@ -236,13 +232,15 @@
             </div>
             <div class="result">
               <span class="result-n">$0</span>
-              <span class="result-t">marketing spend — the distribution was the design</span>
+              <span class="result-t">spent acquiring any of them</span>
             </div>
           </div>
-          <p>What started as one plugin became a way of thinking about reach: meet people inside the
-            tools they already use, solve something small for them properly, and let the product
-            introduce itself. Other engineers on the team went on to build the same kind of
-            integration for other platforms.</p>
+          <p>And the second one took three weeks, against three months for the first — the cost of
+            a platform drops once you have built on one.</p>
+          <p>The pattern held across the whole programme: meet people inside the tools they already
+            use, solve something small for them properly, and let the product introduce itself.
+            Slack and the MCP server went to other teams. The two on the design side were mine end
+            to end — proposed, designed, built and shipped.</p>
         </section>
 
         <section>
